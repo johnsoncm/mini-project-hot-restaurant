@@ -27,7 +27,31 @@
       </div>
     </div>
 
-    <div class="container" style="display: flex">
+    <div class="container">
+        <h1>Reservation Information</h1>
+        <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Enter Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter Phone Number</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Phone #">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter Email</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Email Address">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter Unique ID</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Unique ID">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    <div class="container" style="display: flex; margin-top: 15px; margin-bottom: 15px;">
         <div class="apiLinks">
             <a href="/api/view">API Link</a>
         </div>
@@ -37,25 +61,6 @@
         </div>
     </div>
 
-    <div class="container">
-    <form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    </div>
-    
     <script src="../js/index.js"></script>
 
   </body>
