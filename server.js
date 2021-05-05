@@ -16,6 +16,8 @@ const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));  //serves static resources from public directory
+
 
 const tables = [
     {
@@ -76,7 +78,6 @@ app.get('/add' , (req, res) => res.sendFile(path.join(__dirname, './public/html/
 app.get('/view', (req, res) => res.sendFile(path.join(__dirname, './public/html/view.html')))
 
 
-
 // View all reservations
 app.get('/api/view' , (req, res) => res.json(tables));
 
@@ -85,9 +86,8 @@ app.get('/api/waitlist' , (req, res) => res.json(waitList));
 
 app.post('/add', (req, res) => {
     const newReservation = req.body;
-
-    // newReservation.name = newReservation.name.replace(/\s+/g, '').toLowerCase();
     
+    //if less than 5 tables, add to reservations, else add to waitlist
     if (tables.length >= 5) {
         waitList.push(newReservation)
     }else {
@@ -97,13 +97,6 @@ app.post('/add', (req, res) => {
 
 });
 
-// app.post('/waitlist', (req, res) => {
-//     const newList = req.body;
 
-//     // newReservation.name = newReservation.name.replace(/\s+/g, '').toLowerCase();
-
-//     waitList.push(newList);
-//     res.json(newList);
-// });
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
