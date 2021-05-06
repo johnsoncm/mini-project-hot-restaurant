@@ -8,6 +8,7 @@
 
 
 
+const { response } = require('express');
 const express = require('express');
 const path = require('path');
 
@@ -97,6 +98,17 @@ app.post('/add', (req, res) => {
 
 });
 
+//DELETE tables and waitlist data
+app.delete('/clear', (req, res) => {
+    
+    //sets both tables and waitlist to empty array
+    tables.length = 0;
+    waitList.length = 0;
 
+    console.log('deleting existing tables and waitlist');
+    
+    res.end();
+});
 
+//makes app go
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));

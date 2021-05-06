@@ -20,9 +20,9 @@
             <span class="fa fa-eye"></span> View Reservations
           </button>
         </a>
-        <a href="/api/waitlist">
+        <a href="/add">
           <button class="btn btn-danger btn-lg">
-            <span class="fa fa-list"></span> View Waitlist
+            <span class="fa fa-list"></span> Make Reservation
           </button>
         </a>
       </div>
@@ -43,17 +43,11 @@
     </div> 
     
     <div class="container" style="display: flex; margin-top: 15px; margin-bottom: 15px;">
-        <div class="apiLinks">
-            <a href="/api/view">API Reservations</a>
-        </div>
+        <a href="/api/view">API Reservations</a>
         <div style="margin: 0px 5px 0px 5px;"> | </div>
-        <div class="apiLinks">
-            <a href="/api/waitlist">API Waitlist</a>
-        </div>
+        <a href="/api/waitlist">API Waitlist</a>
         <div style="margin: 0px 5px 0px 5px;"> | </div>
-        <div class="apiLinks">
-            <a href="/api/waitlist">Clear Tables</a>
-        </div>
+        <button type="submit" value="submit" class="btn btn-primary" id="clearTablesBtn">Clear Tables</button>
     </div>
 
   <script src="../view.js"></script>

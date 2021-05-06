@@ -21,33 +21,33 @@
         </a>
         <a href="/add">
           <button class="btn btn-danger btn-lg">
-            <span class="fa fa-list"></span> Make Reservations
+            <span class="fa fa-list"></span> Make Reservation
           </button>
         </a>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" id='tableForm'>
         <h1>Reservation Information</h1>
         <form>
         <div class="form-group">
             <label for="exampleInput">Enter Name</label>
-            <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name">
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name">
         </div>
         <div class="form-group">
             <label for="exampleInput">Enter Phone Number</label>
-            <input type="password" class="form-control" id="phone" placeholder="Enter Phone #">
+            <input type="text" class="form-control" id="phone" placeholder="Enter Phone #">
         </div>
         <div class="form-group">
             <label for="exampleInput">Enter Email</label>
-            <input type="password" class="form-control" id="email" placeholder="Enter Email Address">
+            <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
         </div>
         <div class="form-group">
             <label for="exampleInput">Enter Unique ID</label>
-            <input type="password" class="form-control" id="uniqueID" placeholder="Enter Unique ID">
+            <input type="text" class="form-control" id="uniqueId" placeholder="Enter Unique ID">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" value="submit" class="btn btn-primary" id="submitBtn">Submit</button>
         </form>
     </div>
     

@@ -1,10 +1,12 @@
 let currentTables;
 let currentWaitlist;
+let clearTablesBtn;
 
 //select elements from HTML
 if (window.location.pathname === '/view') {
     currentTables = document.querySelector('#current-tables');
     currentWaitlist = document.querySelector('#current-waitlist');
+    clearTablesBtn = document.querySelector('#clearTablesBtn')
   }
 
 
@@ -63,6 +65,19 @@ const renderWaitlist = (tables) => {
     })
 
 }
+
+//event listener for 'Clear Tables' button
+clearTablesBtn.addEventListener("click", () => {
+    
+    //make DELETE fetch request to remove all data from tables and waitlist
+    fetch('/clear', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+});
+
 
 getTables();
 
