@@ -8,6 +8,7 @@
 
 
 
+const { response } = require('express');
 const express = require('express');
 const path = require('path');
 
@@ -16,6 +17,8 @@ const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));  //serves static resources from public directory
+
 
 const tables = [
     {
@@ -76,7 +79,6 @@ app.get('/add' , (req, res) => res.sendFile(path.join(__dirname, './public/html/
 app.get('/view', (req, res) => res.sendFile(path.join(__dirname, './public/html/view.html')))
 
 
-
 // View all reservations
 app.get('/api/view' , (req, res) => res.json(tables));
 
@@ -85,9 +87,8 @@ app.get('/api/waitlist' , (req, res) => res.json(waitList));
 
 app.post('/add', (req, res) => {
     const newReservation = req.body;
-
-    // newReservation.name = newReservation.name.replace(/\s+/g, '').toLowerCase();
     
+    //if less than 5 tables, add to reservations, else add to waitlist
     if (tables.length >= 5) {
         waitList.push(newReservation)
     }else {
@@ -97,13 +98,17 @@ app.post('/add', (req, res) => {
 
 });
 
-// app.post('/waitlist', (req, res) => {
-//     const newList = req.body;
+//DELETE tables and waitlist data
+app.delete('/clear', (req, res) => {
+    
+    //sets both tables and waitlist to empty array
+    tables.length = 0;
+    waitList.length = 0;
 
-//     // newReservation.name = newReservation.name.replace(/\s+/g, '').toLowerCase();
+    console.log('deleting existing tables and waitlist');
+    
+    res.end();
+});
 
-//     waitList.push(newList);
-//     res.json(newList);
-// });
-
+//makes app go
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
